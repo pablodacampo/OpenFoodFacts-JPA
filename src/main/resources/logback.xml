@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{dd/MM/yyyy HH:mm:ss.SSS,Europe/Paris} %-5level %logger{36} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>C:/Temp/logs.txt</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>%d{dd/MM/yyyy HH:mm:ss.SSS,Europe/Paris} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="fr.diginamic.offi" level="INFO">
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<!-- règle de logs par défaut. Ici : niveau INFO vers la sortie standard -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+</configuration>
